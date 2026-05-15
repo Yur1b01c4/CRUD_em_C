@@ -49,7 +49,7 @@ De acordo com a opção escolhida, o `Program.cs` chama a funcionalidade corresp
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/Yur1b01c4/CRUD_em_C.git
 ```
 
 ### 2. Configurar o banco de dados
