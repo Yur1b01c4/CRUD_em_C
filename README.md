@@ -1,55 +1,103 @@
-🎓 Sistema de Cadastro de Alunos (CRUD)
+# 🎓 Sistema de Cadastro de Alunos (CRUD)
 
-Projeto desenvolvido durante as aulas de Programação Orientada a Objetos (POO) para exercitar a manipulação de dados em banco de dados SQL utilizando C#.
+Projeto desenvolvido durante as aulas de Programação Orientada a Objetos (POO) com o objetivo de praticar a manipulação de dados em banco de dados SQL utilizando C#.
 
-O sistema consiste em um CRUD que está sendo desenvolvido durante as aulas que permite o gerenciamento de registros de alunos, aplicando conceitos de separação de responsabilidades com o padrão Repository.
+O sistema consiste em um CRUD de alunos, permitindo cadastrar, atualizar, excluir e visualizar registros, aplicando conceitos de orientação a objetos e separação de responsabilidades com o padrão Repository.
 
-🛠 Tecnologias e Ferramentas
+## 🛠 Tecnologias e Ferramentas
 
-Linguagem: C#
+- **Linguagem:** C#
+- **Plataforma:** .NET 8
+- **IDE:** Visual Studio 2022
+- **Banco de Dados:** SQL Server
+- **Gerenciador do Banco:** SQL Server Management Studio (SSMS)
+- **Bibliotecas:** `System.Data.SqlClient` e `Microsoft.Data.SqlClient`
 
-Plataforma: .NET 8
+## 📁 Estrutura do Projeto
 
-IDE: Visual Studio 2022
+O projeto segue uma organização lógica para facilitar a manutenção e a escalabilidade:
 
-Banco de Dados: SQL Server Managementer Studio (SSMS)
+- `Models/`: Contém a classe `Aluno.cs`, que representa a entidade de dados no sistema.
+- `Repository/`: Contém a classe `AlunoRepository.cs`, responsável pela comunicação com o SQL Server.
+- `Services/`: Contém a classe `AlunoService.cs`, responsável por centralizar as regras e operações do sistema.
+- `Program.cs`: Ponto de entrada da aplicação, responsável pela interação com o usuário através de um menu.
 
-Biblioteca: System.Data.SqlClient e Microsoft.Data.SqlClient
+## 📝 Funcionalidades
 
-📁 Estrutura do Projeto
+Atualmente, o sistema possui as seguintes funcionalidades:
 
-O projeto segue uma organização lógica para facilitar a manutenção e escalabilidade:
+- [x] Cadastrar novo aluno
+- [x] Atualizar aluno
+- [x] Deletar aluno
+- [x] Listar alunos
+- [x] Exibir menu interativo no console
 
-Models/: Contém a classe Aluno.cs, que representa a entidade de dados no sistema (POO).
+## 📋 Menu do Sistema
 
-Repository/: Contém a classe AlunoRepository.cs, responsável por toda a lógica de comunicação com o SQL Server (comandos INSERT, SELECT, etc).
+O sistema apresenta um menu com 5 opções:
 
-Program.cs: Ponto de entrada da aplicação, onde a interação com o usuário acontece.
+1. Inserir aluno
+2. Atualizar aluno
+3. Deletar aluno
+4. Visualizar alunos
+5. Sair
 
-🚀 Como Executar o Projeto
+De acordo com a opção escolhida, o `Program.cs` chama a funcionalidade correspondente na camada `Services/AlunoService`.
 
-Clonar o repositório:
+## 🚀 Como Executar o Projeto
 
-git clone: https://github.com/seu-usuario/nome-do-repositorio.git
+### 1. Clonar o repositório
 
-Configurar o Banco de Dados:
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+```
 
-Crie uma tabela chamada Alunos no seu SQL Server.
+### 2. Configurar o banco de dados
 
-Estrutura sugerida: Id (PK), Nome, Idade, Email.
+Crie uma tabela chamada `Alunos` no seu SQL Server.
 
-Ajustar a Connection String:
+Exemplo de estrutura:
 
-Abra o arquivo Repository/AlunoRepository.cs.
+```sql
+CREATE TABLE Alunos (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Nome NVARCHAR(100) NOT NULL,
+    Idade INT NOT NULL,
+    Email NVARCHAR(100) NOT NULL
+);
+```
 
-Atualize a variável da connectionString com as suas credenciais locais.
+### 3. Ajustar a connection string
 
-Executar:
+Abra o arquivo:
 
-Abra o arquivo .sln no Visual Studio 2022.
+```bash
+Repository/AlunoRepository.cs
+```
 
-Pressione F5 ou clique em Start.
+Atualize a variável de conexão com as suas credenciais locais do SQL Server.
 
-📝 Funcionalidades
+### 4. Executar o projeto
 
-[x] Cadastrar novo aluno.
+- Abra o arquivo `.sln` no Visual Studio 2022
+- Pressione `F5` ou clique em **Start**
+
+## 💡 Objetivo do Projeto
+
+Este projeto foi desenvolvido com finalidade educacional para reforçar conceitos como:
+
+- Programação Orientada a Objetos (POO)
+- Operações CRUD
+- Integração com banco de dados SQL Server
+- Organização em camadas
+- Uso do padrão Repository
+
+## 📌 Observações
+
+- Certifique-se de que o SQL Server esteja em execução.
+- Verifique se a connection string está configurada corretamente antes de iniciar.
+- O projeto é executado em aplicação console.
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins acadêmicos.

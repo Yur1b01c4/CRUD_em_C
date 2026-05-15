@@ -11,7 +11,7 @@ namespace CRUD.Repository
 {
     public class AlunoRepository
     {
-        string connectionString = "Server = 192.168.0.39; Database = FATECTQ_YURI; User id = aluno; Password = Aluno@123; Encrypt = False; TrustServerCertificate = True";
+        string connectionString = "Server = xx.xx.xx.x; Database = xxx; User id = xx; Password = xxxx; Encrypt = False; TrustServerCertificate = True";
 
         public void Inserir(Aluno aluno)
         {
