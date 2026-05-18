@@ -1,9 +1,12 @@
 using CRUD.Models;
 using CRUD.Repository;
 using CRUD.Services;
+using DotNetEnv;
 
+Env.Load(".env.local");
 ProdutoRepository repo = new ProdutoRepository();
 ProdutoService service = new ProdutoService(repo);
+
 
 while (true)
 {
