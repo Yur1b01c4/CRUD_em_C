@@ -1,4 +1,4 @@
-﻿using CRUD.Models;
+using CRUD.Models;
 using CRUD.Repository;
 using CRUD.Services;
 
@@ -40,4 +40,3 @@ while (true)
             break;
     }
 }
-

@@ -43,7 +43,7 @@ namespace CRUD.Services
             Console.WriteLine("Digite o ID do aluno que deseja atualizar:");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
-                Console.WriteLine("ID inválido. Operação cancelada.");
+                Console.WriteLine("ID invï¿½lido. Operaï¿½ï¿½o cancelada.");
                 Console.ReadKey();
                 return;
             }
@@ -76,7 +76,7 @@ namespace CRUD.Services
             Console.WriteLine("Digite o ID do aluno que deseja deletar:");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
-                Console.WriteLine("ID inválido. Operação cancelada.");
+                Console.WriteLine("ID invï¿½lido. Operaï¿½ï¿½o cancelada.");
                 Console.ReadKey();
                 return;
             }
@@ -85,7 +85,7 @@ namespace CRUD.Services
             string confirm = (Console.ReadLine() ?? string.Empty).ToLower();
             if (confirm != "s" && confirm != "y")
             {
-                Console.WriteLine("Operação cancelada.");
+                Console.WriteLine("Operaï¿½ï¿½o cancelada.");
                 Console.ReadKey();
                 return;
             }

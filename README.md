@@ -1,103 +1,63 @@
-# 🎓 Sistema de Cadastro de Alunos (CRUD)
+# 📦 Sistema de Produtos em Estoque (CRUD)
 
-Projeto desenvolvido durante as aulas de Programação Orientada a Objetos (POO) com o objetivo de praticar a manipulação de dados em banco de dados SQL utilizando C#.
+Projeto desenvolvido inicialmente durante as aulas de Programação Orientada a Objetos (POO) e adaptado como projeto em grupo para o desafio final: **Controle de Produtos em Estoque**. O objetivo é demonstrar a manipulação de dados num Banco de Dados em nuvem utilizando C#.
 
-O sistema consiste em um CRUD de alunos, permitindo cadastrar, atualizar, excluir e visualizar registros, aplicando conceitos de orientação a objetos e separação de responsabilidades com o padrão Repository.
+O sistema consiste em um CRUD de produtos, permitindo cadastrar, atualizar, excluir e visualizar o estoque atual, registrando dados como Quantidade, Valor e Categoria. Ele aplica conceitos de orientação a objetos, arquitetura e padrão Repository.
 
 ## 🛠 Tecnologias e Ferramentas
 
 - **Linguagem:** C#
 - **Plataforma:** .NET 8
-- **IDE:** Visual Studio 2022
-- **Banco de Dados:** SQL Server
-- **Gerenciador do Banco:** SQL Server Management Studio (SSMS)
-- **Bibliotecas:** `System.Data.SqlClient` e `Microsoft.Data.SqlClient`
+- **IDE:** Visual Studio / VS Code
+- **Banco de Dados em Nuvem:** PostgreSQL (Hospedado no Supabase)
+- **Acesso a Dados:** `Npgsql` e `DotNetEnv` (para proteção de credenciais)
 
 ## 📁 Estrutura do Projeto
 
-O projeto segue uma organização lógica para facilitar a manutenção e a escalabilidade:
+O projeto segue uma organização lógica para separar responsabilidades e facilitar a manutenibilidade:
 
-- `Models/`: Contém a classe `Aluno.cs`, que representa a entidade de dados no sistema.
-- `Repository/`: Contém a classe `AlunoRepository.cs`, responsável pela comunicação com o SQL Server.
-- `Services/`: Contém a classe `AlunoService.cs`, responsável por centralizar as regras e operações do sistema.
-- `Program.cs`: Ponto de entrada da aplicação, responsável pela interação com o usuário através de um menu.
+- `Models/`: Contém a classe `Produto.cs`, que representa a entidade de dados de estoque no sistema.
+- `Repository/`: Contém a classe `ProdutoRepository.cs`, responsável pela comunicação com o banco PostgreSQL no Supabase. *A criação da tabela é feita automaticamente pelo script na primeira execução. (Se não existir)*
+- `Services/`: Contém a classe `AlunoService.cs`, que será trocada para "ProdutoService.cs" ou algo parecido. Será responsável por centralizar as regras e operações, lidando com a entrada e saída do console.
+- `Program.cs`: Ponto de entrada da aplicação, contendo o fluxo interativo do usuário.
 
 ## 📝 Funcionalidades
 
-Atualmente, o sistema possui as seguintes funcionalidades:
-
-- [x] Cadastrar novo aluno
-- [x] Atualizar aluno
-- [x] Deletar aluno
-- [x] Listar alunos
-- [x] Exibir menu interativo no console
+- [x] Cadastrar novo produto no estoque
+- [x] Atualizar um produto
+- [x] Deletar um produto
+- [x] Listar todos os produtos e ver totalizadores e dados
+- [x] Conexão segura lendo variáveis de ambiente de um arquivo oculto `.env.local`
+- [x] Auto-criação da tabela via script SQL acoplado ao Repositório
 
 ## 📋 Menu do Sistema
 
-O sistema apresenta um menu com 5 opções:
+O sistema apresentará um menu iterativo no console com opções de escolhas.
 
-1. Inserir aluno
-2. Atualizar aluno
-3. Deletar aluno
-4. Visualizar alunos
-5. Sair
+## 🚀 Como Rodar o Projeto
 
-De acordo com a opção escolhida, o `Program.cs` chama a funcionalidade correspondente na camada `Services/AlunoService`.
-
-## 🚀 Como Executar o Projeto
-
-### 1. Clonar o repositório
+1. Certifique-se de ter o [.NET 8 SDK](https://dotnet.microsoft.com/download) instalado.
+2. Clone o repositório.
 
 ```bash
 git clone https://github.com/Yur1b01c4/CRUD_em_C.git
 ```
 
-### 2. Configurar o banco de dados
+3. Crie um arquivo chamado `.env.local` na raiz do projeto contendo as suas credenciais do banco Supabase (Session Pooler):
+   ```env
+   HOST=aws-0-[sua-regiao].pooler.supabase.com
+   PORT=5432
+   DATABASE=postgres
+   USER=postgres.[seu_projeto]
+   PASSWORD=[sua_senha]
+   ```
+Você encontra as credenciais do seu banco de dados na seção "Connection String" do seu projeto no Supabase.
 
-Crie uma tabela chamada `Alunos` no seu SQL Server.
-
-Exemplo de estrutura:
-
-```sql
-CREATE TABLE Alunos (
-    Id INT PRIMARY KEY IDENTITY(1,1),
-    Nome NVARCHAR(100) NOT NULL,
-    Idade INT NOT NULL,
-    Email NVARCHAR(100) NOT NULL
-);
-```
-
-### 3. Ajustar a connection string
-
-Abra o arquivo:
-
-```bash
-Repository/AlunoRepository.cs
-```
-
-Atualize a variável de conexão com as suas credenciais locais do SQL Server.
-
-### 4. Executar o projeto
-
-- Abra o arquivo `.sln` no Visual Studio 2022
-- Pressione `F5` ou clique em **Start**
-
-## 💡 Objetivo do Projeto
-
-Este projeto foi desenvolvido com finalidade educacional para reforçar conceitos como:
-
-- Programação Orientada a Objetos (POO)
-- Operações CRUD
-- Integração com banco de dados SQL Server
-- Organização em camadas
-- Uso do padrão Repository
-
-## 📌 Observações
-
-- Certifique-se de que o SQL Server esteja em execução.
-- Verifique se a connection string está configurada corretamente antes de iniciar.
-- O projeto é executado em aplicação console.
-
-## 📄 Licença
-
-Este projeto foi desenvolvido para fins acadêmicos.
+4. Pelo terminal, na pasta do projeto, execute o comando de dependências:
+   ```bash
+   dotnet restore
+   ```
+5. Rode o projeto pelo terminal com o comando:
+   ```bash
+   dotnet run
+   ```
