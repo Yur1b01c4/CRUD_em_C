@@ -2,8 +2,8 @@ using CRUD.Models;
 using CRUD.Repository;
 using CRUD.Services;
 
-AlunoRepository repo = new AlunoRepository();
-AlunoService service = new AlunoService(repo);
+ProdutoRepository repo = new ProdutoRepository();
+ProdutoService service = new ProdutoService(repo);
 
 while (true)
 {
