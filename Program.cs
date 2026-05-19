@@ -11,11 +11,11 @@ ProdutoService service = new ProdutoService(repo);
 while (true)
 {
     Console.Clear();
-    Console.WriteLine("=== CRUD de Alunos ===");
-    Console.WriteLine("1 - Inserir aluno");
-    Console.WriteLine("2 - Atualizar aluno");
-    Console.WriteLine("3 - Deletar aluno");
-    Console.WriteLine("4 - Listar todos os alunos");
+    Console.WriteLine("=== CRUD de Produtos ===");
+    Console.WriteLine("1 - Inserir produto");
+    Console.WriteLine("2 - Atualizar produto");
+    Console.WriteLine("3 - Deletar produto");
+    Console.WriteLine("4 - Listar todos os produtos");
     Console.WriteLine("0 - Sair");
     Console.Write("Escolha uma opção: ");
 
